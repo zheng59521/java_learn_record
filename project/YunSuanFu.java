@@ -73,12 +73,53 @@ public class YunSuanFu {
                 +"-"+ca.get(Calendar.MONTH)
                 +"-"+ca.get(Calendar.DATE));
 
+
+        // 引用数据类型传参
+        System.out.println("引用数据类型传参");
+        int num1 = 1;
+        int num2 = 2;
+
+        int[] num_arrs = {num1, num2};
+
+        System.out.println("交换前："+ Arrays.toString(num_arrs));
+
+        // 调用swap方法
+        swap(num_arrs);
+        System.out.println("交换后："+ Arrays.toString(num_arrs));
+        System.out.println("交换后：num1 is："+ num1);
+
+        // 可变参数
+        System.out.println("可变参数");
+        keBian( 34, 3, 3, 2, 56.5);
+        keBian( new double[]{1, 2, 3, 4} );
+
     }
 
     static void doIt( int[] z )
     {
         int[] A = z;
         A[0] = 99;
+    }
+
+    /** 交换值的方法 */
+    public static void swap(int [] num_arr) {
+        System.out.println("\t进入 swap 方法");
+        // 交换 n1 与 n2的值
+        int temp = num_arr[0];
+        num_arr[0] = num_arr[1];
+        num_arr[1] = temp;
+    }
+
+    /**
+     * 方法带有可变参数,可变参数必须是参数最后一个
+     * @param numbers
+     */
+    public static void keBian( double... numbers )
+    {
+        for ( double i : numbers )
+        {
+            System.out.println("参数："+i);
+        }
     }
 
 }
