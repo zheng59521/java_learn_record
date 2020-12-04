@@ -1,10 +1,25 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class MyIo
 {
+
+    enum Color
+    {
+        RED, GREEN, BLUE;
+
+        // 构造函数
+        private Color()
+        {
+            System.out.println("Constructor called for : " + this.toString());
+        }
+
+        public void colorInfo()
+        {
+            System.out.println("Universal Color");
+        }
+    }
 
     public MyIo(  )
     {
@@ -17,6 +32,10 @@ public class MyIo
         for (String arg : args) {
             System.out.println("打印命令行参数： " + arg);
         }
+
+        Color c1 = Color.RED;
+        System.out.println(c1);
+        c1.colorInfo();
 
         // 使用 System.in 创建 BufferedReader
         BufferedReader bf = new BufferedReader(
@@ -34,10 +53,10 @@ public class MyIo
         // writeToTerim();
 
         // 读取文件
-         String[] fileTextArr = readFileByLines("D:\\study\\java\\project\\read.log");
+//         String[] fileTextArr = readFileByLines("D:\\study\\java\\project\\read.log");
 
         // 写文件
-         writeToFile(fileTextArr, "D:\\study\\java\\project\\write.log");
+//         writeToFile(fileTextArr, "D:\\study\\java\\project\\write.log");
 
         // 接受命令行输入,判断是否输入整数
 //         inputCmd();
