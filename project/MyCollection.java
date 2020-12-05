@@ -1,19 +1,31 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MyCollection {
 
     public static void main( String[] args ) {
 
+
+
+
         // 声明ArrayList并打印
-        printArrayList();
+//        printArrayList();
 
         // 迭代器循环集合
-        eachCollectMap();
+//        eachCollectMap();
+
+        // 链表操作
+//        linkedListOpera();
+
+        // HashSet操作
+//        hashSetOpera();
+
+        // HashMap操作
+//        hashMapOpera();
+
+        // Iterator(迭代器)操作
+//        iteratorOpera();
     }
+
 
     /**
      * 声明ArrayList并打印
@@ -38,6 +50,7 @@ public class MyCollection {
         System.out.println("使用Collections.sort排序数组列表"+ strArr  );
 
     }
+
 
     /**
      * 循环集合(MAP)
@@ -74,5 +87,103 @@ public class MyCollection {
 //            System.out.println("value= " + v);
 //        }
     }
+
+
+    /**
+     * 链表操作
+     */
+    public static void linkedListOpera() {
+
+        LinkedList<String> list = new LinkedList<String>();
+
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        System.out.println("获取第一个"+list.getFirst());
+        list.addLast("d");
+        System.out.println("增加了最后一个"+list.getLast());
+        list.removeLast();
+        System.out.println("移除了最后一个"+list);
+
+        for (String it: list) {
+            System.out.println("循环输出"+it);
+        }
+
+    }
+
+
+    /**
+     * HashSet操作
+     */
+    public static void hashSetOpera() {
+        HashSet<String> sites = new HashSet<String>();
+
+        sites.add("a");
+        sites.add("b");
+        sites.add("c");
+        System.out.println("判断元素a是否存在"+sites.contains("a"));
+        sites.remove("c");
+        System.out.println("删除了元素c,判断c是否存在:"+sites.contains("c"));
+        System.out.println("元素总个数"+sites.size());
+
+        for (String it: sites) {
+            System.out.println("循环元素"+it);
+
+        }
+
+    }
+
+
+    /**
+     * HashMap操作
+     */
+    public static void hashMapOpera() {
+        HashMap<Integer, String> sites = new HashMap<Integer, String>();
+
+        sites.put(1, "a");
+        sites.put(2, "b");
+        sites.put(3, "c");
+        System.out.println("哈希Map的值"+sites);
+        System.out.println("获取2的值"+sites.get(2));
+        sites.remove(3);
+        System.out.println("删除3的值"+sites);
+        System.out.println("哈希Map的长度"+sites.size());
+        for ( Integer inx: sites.keySet() ) {
+            System.out.println("key: " + inx + " value: " + sites.get(inx));
+        }
+
+        for ( Map.Entry<Integer, String> entry: sites.entrySet() ) {
+            System.out.println("entry: " + entry );
+        }
+
+    }
+
+
+    /**
+     * Iterator迭代器操作
+     */
+    public static void iteratorOpera() {
+        ArrayList<Character> list = new ArrayList<Character>();
+
+        list.add('a');
+        list.add('b');
+        list.add('c');
+
+        // 获取迭代器
+        Iterator<Character> it = list.iterator();
+
+        while ( it.hasNext() ) {
+            Character c = it.next();
+            it.remove();
+            System.out.println("迭代元素："+c);
+        }
+
+        System.out.println("数组列表已被清空："+list);
+
+    }
+
+
+
+
 
 }
